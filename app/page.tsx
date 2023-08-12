@@ -109,7 +109,7 @@ export default function Home() {
           )
         )}
       </ul>
-      <nav className="w-[60%] h-full flex justify-end items-end bg-white">
+      <nav className="w-[60%] h-full flex justify-end items-end">
         <ul className="h-[60%] flex flex-col pr-[20%] pb-[10%] font-bodoniModa italic font-bold">
           <li className="basis-1/4 flex items-center justify-end">
             <Link href={`/hoon-jo`}>

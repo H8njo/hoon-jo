@@ -61,6 +61,7 @@ export default function RootLayout({
           bodoniModa.variable,
           yanone.variable
         )}
+        style={{ backgroundColor: '#ece7e1' }}
       >
         {children}
       </body>

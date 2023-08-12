@@ -150,3 +150,20 @@ export const skills: Skills = [
   },
   { name: 'PM2', src: '/images/skills/pm2.png', category: 'etc' },
 ];
+
+export const projects = [
+  'hoon-jo',
+  'hyundai',
+  'kisti',
+  'mcst-portal',
+  'ctf',
+  'zipida-ver.2',
+  'grida',
+  'moj-portal',
+  'rittal',
+  'gcc',
+  'mou-portal',
+  'dugi-dugi',
+  'zipida-ver.1',
+  'reservation',
+];
