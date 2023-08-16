@@ -8,6 +8,8 @@ import {
   Yanone_Kaffeesatz,
 } from 'next/font/google';
 
+import RedirectProvider from '@/context/redirect.context';
+
 const notoSansKr = Noto_Sans_KR({
   preload: false,
   weight: ['100', '400', '700', '900'],
@@ -61,8 +63,9 @@ export default function RootLayout({
           bodoniModa.variable,
           yanone.variable
         )}
+        style={{ backgroundColor: '#ece7e1' }}
       >
-        {children}
+        <RedirectProvider>{children}</RedirectProvider>
       </body>
     </html>
   );
