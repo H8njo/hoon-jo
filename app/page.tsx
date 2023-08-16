@@ -131,11 +131,11 @@ export default function Home() {
               </button>
             </li>
 
-            <li className="basis-1/4 flex items-center justify-end">
+            {/* <li className="basis-1/4 flex items-center justify-end">
               <button onClick={() => redirect('/contact')}>
                 <motion.h1 {...navItemProps}>Contact</motion.h1>
               </button>
-            </li>
+            </li> */}
           </ul>
         </nav>
       </motion.div>

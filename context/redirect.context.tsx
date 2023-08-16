@@ -2,6 +2,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import PageAnimation from '../components/client-components/PageAnimation';
 import { usePathname, useRouter } from 'next/navigation';
+import Header from '@/components/client-components/Header';
 
 type Props = {
   children: React.ReactNode;
@@ -25,6 +26,7 @@ const RedirectContextProvider = ({ children }: Props) => {
   }, [url]);
   return (
     <>
+      <Header redirect={redirect} />
       <PageAnimation animate={url}></PageAnimation>
       <RedirectContext.Provider value={{ redirect }}>
         {children}

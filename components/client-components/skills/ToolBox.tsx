@@ -10,17 +10,22 @@ type ToolBox = {
 
 const ToolBox = ({ shakeScene, sortSkills, reset }: ToolBox) => {
   return (
-    <div className="absolute z-20 flex h-full justify-center flex-col">
-      <button className="" onClick={shakeScene}>
-        <GiPopcorn fontSize={30} />
-      </button>
+    <div className="absolute z-20 flex h-auto justify-center flex-col  inset-y-0">
+      <div
+        className="flex flex-col py-[10px] px-[6px] gap-[10px] "
+        style={{ backgroundColor: '#cbcbcb' }}
+      >
+        <button onClick={shakeScene}>
+          <GiPopcorn fontSize={30} />
+        </button>
 
-      <button onClick={sortSkills}>
+        {/* <button onClick={sortSkills}>
         <BsMagic fontSize={30} />
-      </button>
-      <button onClick={reset}>
-        <GrPowerReset fontSize={30} />
-      </button>
+      </button> */}
+        <button onClick={reset}>
+          <GrPowerReset fontSize={30} />
+        </button>
+      </div>
     </div>
   );
 };
