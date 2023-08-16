@@ -20,7 +20,7 @@ export default async function Post({ params }: any) {
   const instagramPromise = fetchInstagram();
 
   return (
-    <main>
+    <main className="relative z-[1] overflow-hidden">
       <About />
       <Services />
       <Suspense fallback={<div>Loading Contents..</div>}>

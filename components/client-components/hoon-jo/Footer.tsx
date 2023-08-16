@@ -6,14 +6,17 @@ const Footer = () => {
           style={{ fontSize: 50 }}
           className="text-center font-black mb-[20px]"
         >
-          Lorem Ipsum is simply dummy
+          Want to know more about me?
         </h1>
         <p className="text-center" style={{ fontSize: 25 }}>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industrys standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries,
+          I created this site to document my growth as a developer.
+        </p>
+        <p className="text-center" style={{ fontSize: 25 }}>
+          I want to hear about my mistakes, ideas, opinions, and other things so
+          I can get better.
+        </p>
+        <p className="text-center" style={{ fontSize: 25 }}>
+          I'm a very open-minded person, so don't hesitate to reach out.
         </p>
       </article>
     </section>

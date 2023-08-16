@@ -23,7 +23,7 @@ const List = ({
 }: List) => {
   return (
     <div className="absolute z-10 w-full">
-      <motion.div
+      {/* <motion.div
         animate={isShowTitle ? 'show' : 'hide'}
         transition={{ staggerChildren: 0.1 }}
         className=" w-full h-full flex flex-row gap-[40px] "
@@ -73,9 +73,10 @@ const List = ({
             </motion.h1>
           </div>
         </div>
-      </motion.div>
+      </motion.div> */}
       <motion.div
-        className="fixed bg-slate-50 w-[90%] h-[92%] rounded-b-xl bottom-[0px] inset-x-0 mx-auto"
+        className="fixed bg-slate-50 w-[90%] h-full rounded-b-xl bottom-[0px] inset-x-0 mx-auto"
+        // style={{ height: 'calc(100% - 50px)' }}
         initial={{ y: '100%' }}
         animate={isOpened ? 'open' : 'closed'}
         variants={{
@@ -83,6 +84,7 @@ const List = ({
             y: 90,
           },
         }}
+        transition={{ duration: 0.7, type: 'spring' }}
       >
         {/* OPEN BUTTON */}
         <motion.button

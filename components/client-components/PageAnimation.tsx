@@ -6,7 +6,7 @@ type AnimationPageProps = {
   animate: string | null;
 };
 
-const hidePauseDuration = 1200;
+const hidePauseDuration = 1400;
 
 const PageAnimation = ({ animate }: AnimationPageProps) => {
   const [animateState, setAnimateState] = useState<'show' | 'hide' | ''>('');
@@ -28,17 +28,18 @@ const PageAnimation = ({ animate }: AnimationPageProps) => {
             <div key={key}></div>
           ))}
       </div>
+
       <motion.div
-        className="fixed w-screen h-screen grid grid-cols-12 divide-x divide-gray"
+        className="fixed w-screen h-screen grid grid-cols-12 divide-x overflow-hidden divide-gray"
         animate={animateState}
         variants={{
           show: {
             zIndex: 99,
-            transition: { staggerChildren: 0.06, ease: 'easeOut' },
+            transition: { staggerChildren: 0.05, ease: 'easeOut' },
           },
           hide: {
             zIndex: 0,
-            transition: { delay: 1, staggerChildren: 0.06, ease: 'easeOut' },
+            transition: { delay: 1, staggerChildren: 0.05, ease: 'easeOut' },
           },
         }}
       >
@@ -47,7 +48,8 @@ const PageAnimation = ({ animate }: AnimationPageProps) => {
           .map((_, key) => (
             <motion.div
               key={key}
-              className="bg-slate-600 w-full h-full"
+              className="w-full h-full"
+              style={{ backgroundColor: '#242424' }}
               initial={{ y: -1000 }}
               variants={{ show: { y: 0 }, hide: { y: 1000 } }}
               transition={{ ease: 'easeInOut', duration: 0.5 }}

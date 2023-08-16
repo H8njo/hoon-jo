@@ -338,7 +338,7 @@ const Skills = () => {
       style={{
         overflow: 'hidden',
         position: 'absolute',
-        zIndex: 1,
+        zIndex: 2,
         top: 0,
         left: 0,
         width: '100%',

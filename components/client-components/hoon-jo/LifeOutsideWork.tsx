@@ -12,7 +12,7 @@ const LifeOutsideWork = async ({ instagram }: Props) => {
       <div className="h-full w-full">
         <h2
           className="bg-black text-white px-[300px] py-[10px] "
-          style={{ fontSize: 130 }}
+          style={{ fontSize: 100 }}
         >
           Life Outside Work
         </h2>
@@ -22,13 +22,13 @@ const LifeOutsideWork = async ({ instagram }: Props) => {
           <div className="px-[300px] pb-[400px]">
             <div className="w-[55%]">
               <p style={{ fontSize: 25 }}>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industrys standard dummy text
-                ever since the 1500s Lorem Ipsum is simply dummy
+                When I'm not doing something creative, I like to watch
+                scientific videos or travel to Summoner's Rift.
               </p>
               <p style={{ fontSize: 25 }} className="w-[80%] mt-[30px]">
-                text of the printing and typesetting industry. Lorem Ipsum has
-                been the industrys standard text ever since the 1500s
+                I usually hang out with my friends, but I also like to go on
+                long solo trips for a month or two and learn a lot. Can you see
+                how much I value experience and learning?
               </p>
             </div>
           </div>
