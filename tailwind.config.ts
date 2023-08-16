@@ -14,6 +14,9 @@ const config: Config = {
         bodoniModa: ['var(--bodoniModa)'],
         yanone: ['var(--yanone)'],
       },
+      colors: {
+        gray: '#b4b4b4',
+      },
     },
   },
   plugins: [],
