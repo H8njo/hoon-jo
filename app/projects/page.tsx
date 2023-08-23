@@ -16,28 +16,25 @@ const Projects = (props: Props) => {
   });
   return (
     <>
-      <div className="flex flex-row">
-        <aside className="w-[50%] h-auto relative">
-          <div className="fixed w-[50%] flex flex-col justify-center px-[100px] h-full">
+      <main className="flex flex-col sm:flex-row h-screen">
+        <aside className="w-[100%] sm:w-[50%] h-auto relative flex-none pt-[90px] sm:pt-0 pb-[30px]">
+          <div className="sm:fixed w-[100%] sm:w-[50%] flex flex-col sm:justify-center px-[15px] sm:px-[50px] xl:px-[100px] h-full">
             <div className="text-center mb-[10px]">
               <span
-                style={{ fontSize: '1vw', color: '#4d4d4d' }}
-                className=" font-semibold"
+                style={{ color: '#4d4d4d' }}
+                className="font-semibold sm:text-[1vw]"
               >
                 2023-06-23
               </span>
             </div>
             <div className="bg-slate-300 aspect-video"></div>
             <div className="mt-[20px]">
-              <h1
-                className="text-center font-extrabold mb-[2px] font-bodoniModa"
-                style={{ fontSize: '3vw' }}
-              >
+              <h1 className="text-center font-extrabold mb-[2px] font-bodoniModa text-[8vw] sm:text-[3vw]">
                 HOON-JO
               </h1>
               <p
-                style={{ fontSize: '1.5vw', color: '#212121' }}
-                className="text-center"
+                style={{ color: '#212121' }}
+                className="text-center text-[3vw] sm:text-[1.5vw]"
               >
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industrys standard dummy text
@@ -47,22 +44,22 @@ const Projects = (props: Props) => {
             </div>
           </div>
         </aside>
-        <main className="w-[50%] flex flex-col gap-[1vw] mt-[170px] mb-[100px]">
+        <main className="w-[100%] sm:w-[50%] overflow-scroll sm:h-auto flex flex-col gap-[1vw] sm:mt-[110px] pb-[100px] pl-[15px] sm:pl-0">
           {projects.map((item: any, idx) => (
             <motion.article
-              className="relative w-max"
+              className="relative sm:w-max"
               whileHover="mouseOver"
               key={idx}
             >
               {selected === idx ? (
                 <motion.div
-                  className="bg-black w-[10px] absolute h-full -left-[30px]"
+                  className="bg-black w-[10px] absolute h-full -left-[6px] sm:-left-[30px]"
                   layoutId="selected"
                 />
               ) : null}
 
               <motion.div
-                className="absolute h-full bg-black rounded-md "
+                className="absolute h-full bg-black"
                 initial={false}
                 variants={{
                   mouseOver: {
@@ -75,8 +72,8 @@ const Projects = (props: Props) => {
                 className="p-[15px] cursor-pointer"
               >
                 <h2
-                  style={{ fontSize: '6vw' }}
-                  className="uppercase leading-[0.9] font-bodoniModa font-bold whitespace-nowrap mix-blend-difference invert text-black"
+                  // style={{ fontSize: '6vw' }}
+                  className="uppercase text-[12vw] sm:text-[6vw] leading-[0.9] font-bodoniModa font-bold whitespace-nowrap mix-blend-difference invert text-black"
                 >
                   {item}
                 </h2>
@@ -106,7 +103,7 @@ const Projects = (props: Props) => {
             </motion.article>
           ))}
         </main>
-      </div>
+      </main>
       <motion.div
         className=" bg-black fixed left-0 w-full h-[15px]"
         style={{ scaleX }}
