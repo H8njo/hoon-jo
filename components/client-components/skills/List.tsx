@@ -1,15 +1,13 @@
 import { motion } from 'framer-motion';
 import { AiOutlineClose } from 'react-icons/ai';
-import { Skill } from '@/constants/variables';
+import { Skill, Skills } from '@/constants/variables';
+import _ from 'lodash';
+import Image from 'next/image';
 
 type List = {
   onOpenList: () => void;
   onCloseList: () => void;
-  skillCategories: {
-    frontend: Skill[];
-    backend: Skill[];
-    etc: Skill[];
-  };
+  skills: Skills;
   isOpened: boolean;
   isShowTitle: boolean;
 };
@@ -17,128 +15,201 @@ type List = {
 const List = ({
   onOpenList,
   onCloseList,
-  skillCategories,
+  skills,
   isOpened,
   isShowTitle,
 }: List) => {
+  const skillGroup = _.groupBy(skills, 'category2');
+
   return (
     <div className="absolute z-10 w-full">
-      {/* <motion.div
-        animate={isShowTitle ? 'show' : 'hide'}
-        transition={{ staggerChildren: 0.1 }}
-        className=" w-full h-full flex flex-row gap-[40px] "
-      >
-        <div className=" basis-1/3">
-          <div className="overflow-hidden">
-            <motion.h1
-              className="text-center font-roboto"
-              initial={{ y: -40 }}
-              variants={{
-                show: { y: 0 },
-                hide: { y: -40 },
-              }}
-              style={{ fontSize: 30 }}
-            >
-              Front-end
-            </motion.h1>
-          </div>
-        </div>
-        <div className=" basis-1/3">
-          <div className="overflow-hidden">
-            <motion.h1
-              className="text-center font-roboto"
-              initial={{ y: -40 }}
-              variants={{
-                show: { y: 0 },
-                hide: { y: -40 },
-              }}
-              style={{ fontSize: 30 }}
-            >
-              Back-end & DB
-            </motion.h1>
-          </div>
-        </div>
-        <div className=" basis-1/3">
-          <div className="overflow-hidden">
-            <motion.h1
-              className="text-center font-roboto"
-              initial={{ y: -40 }}
-              variants={{
-                show: { y: 0 },
-                hide: { y: -40 },
-              }}
-              style={{ fontSize: 30 }}
-            >
-              Languages & etc
-            </motion.h1>
-          </div>
-        </div>
-      </motion.div> */}
       <motion.div
-        className="fixed bg-slate-50 w-[90%] h-full rounded-b-xl bottom-[0px] inset-x-0 mx-auto"
-        // style={{ height: 'calc(100% - 50px)' }}
+        className="fixed bg-white w-[90%] rounded-b-xl bottom-[0px] inset-x-0 mx-auto overflow-scroll shadow-[rgba(0,0,0,0.24)_0px_3px_8px]"
+        style={{ height: 'calc(100% - 90px)' }}
         initial={{ y: '100%' }}
         animate={isOpened ? 'open' : 'closed'}
         variants={{
           open: {
-            y: 90,
+            y: 0,
+            transition: {
+              staggerChildren: 0.2,
+              delayChildren: 0.5,
+              duration: 0.8,
+              type: 'spring',
+            },
           },
         }}
         transition={{ duration: 0.7, type: 'spring' }}
       >
-        {/* OPEN BUTTON */}
-        <motion.button
-          className="absolute w-[100px] h-[30px] -top-[30px] cursor-pointer bg-slate-300 rounded-t-xl inset-x-0 mx-auto z-10"
-          variants={{
-            open: {
-              opacity: 0,
-              transition: { duration: 0.1 },
-            },
-            close: {
-              opacity: 1,
-            },
-          }}
-          onClick={onOpenList}
-        />
-        {/* CLOSE BUTTON */}
-        <motion.button
-          initial={{ opacity: 0 }}
-          variants={{
-            open: {
-              opacity: 1,
-              transition: { delay: 1 },
-            },
-          }}
-          className="absolute w-[50px] h-[50px] top-[10px] cursor-pointer inset-x-0 mx-auto z-10 flex justify-center items-center"
-          onClick={onCloseList}
-        >
-          <AiOutlineClose fontSize={40} color="#ff8282" />
-        </motion.button>
-        <motion.div className="relative w-full h-full p-[30px] pt-[80px] overflow-scroll">
-          <div className="flex gap-[10%]">
-            <div className="basis-1/3 grid grid-cols-2 gap-[15px] ">
-              {skillCategories.frontend.map((item, idx) => (
-                <h1 key={idx} className="text-center">
-                  {item.name}
+        <div className="relative w-full h-full p-0 sm:p-[50px] flex flex-col lg:flex-row gap-[30px]">
+          <div className="w-full lg:w-1/2 bg-slate-10 space-y-[10px] ">
+            <motion.div
+              className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3 py-[10px] sm:py-[20px] px-[30px] sm:shadow-[rgba(0,0,0,0.24)_0px_3px_8px]"
+              initial={{ y: 50 }}
+              variants={{
+                open: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+                closed: { opacity: 0 },
+              }}
+            >
+              <div className=" col-span-2 sm:col-span-2 md:col-span-3 lg:col-span-2 2xl:col-span-3">
+                <h1 className="text-center text-2xl sm:text-3xl font-bold mb-[25px] font-roboto">
+                  Web Frontend
                 </h1>
+              </div>
+              {skillGroup['Web_Frontend'].map((item, key) => (
+                <div className="flex items-center gap-[15px] mb-[10px]">
+                  <div className="border rounded-full border-neutral-300 w-[55px] h-[55px] lg:w-[70px] lg:h-[70px] relative">
+                    <Image
+                      layout="fill"
+                      objectFit="cover"
+                      src={item.src}
+                      alt={item.name}
+                    />
+                  </div>
+                  <span className="text-md sm:text-lg">{item.name}</span>
+                </div>
               ))}
-            </div>
-            <div className="basis-1/3 grid grid-cols-2 gap-[15px]">
-              {skillCategories.backend.map((item, idx) => (
-                <h1 key={idx} className="text-center">
-                  {item.name}
+            </motion.div>
+
+            <motion.div
+              className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3 py-[10px] sm:py-[20px] px-[30px] sm:shadow-[rgba(0,0,0,0.24)_0px_3px_8px]"
+              initial={{ y: 50 }}
+              variants={{
+                open: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+                closed: { opacity: 0 },
+              }}
+            >
+              <div className=" col-span-2 sm:col-span-2 md:col-span-3 lg:col-span-2 2xl:col-span-3">
+                <h1 className="text-center text-2xl sm:text-3xl font-bold mb-[25px] font-roboto">
+                  Languages
                 </h1>
+              </div>
+              {skillGroup['language'].map((item, key) => (
+                <div className="flex items-center gap-[15px] mb-[10px]">
+                  <div className="border rounded-full border-neutral-300 w-[55px] h-[55px] lg:w-[70px] lg:h-[70px] relative">
+                    <Image
+                      layout="fill"
+                      objectFit="cover"
+                      src={item.src}
+                      alt={item.name}
+                    />
+                  </div>
+                  <span className="text-md sm:text-lg">{item.name}</span>
+                </div>
               ))}
-            </div>
-            <div className="basis-1/3 grid grid-cols-2 gap-[15px]">
-              {skillCategories.etc.map((item, idx) => (
-                <h1 key={idx} className="text-center">
-                  {item.name}
-                </h1>
-              ))}
-            </div>
+            </motion.div>
           </div>
-        </motion.div>
+          <div className="w-full lg:w-1/2 bg-slate-10 space-y-[30px] ">
+            <motion.div
+              className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3 py-[10px] sm:py-[20px] px-[30px] sm:shadow-[rgba(0,0,0,0.24)_0px_3px_8px]"
+              initial={{ y: 50 }}
+              variants={{
+                open: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+                closed: { opacity: 0 },
+              }}
+            >
+              <div className=" col-span-2 sm:col-span-2 md:col-span-3 lg:col-span-2 2xl:col-span-3">
+                <h1 className="text-center text-2xl sm:text-3xl font-bold mb-[25px] font-roboto">
+                  Backend
+                </h1>
+              </div>
+              {skillGroup['Backend'].map((item, key) => (
+                <div className="flex items-center gap-[15px] mb-[10px]">
+                  <div className="border rounded-full border-neutral-300 w-[55px] h-[55px] lg:w-[70px] lg:h-[70px] relative">
+                    <Image
+                      layout="fill"
+                      objectFit="cover"
+                      src={item.src}
+                      alt={item.name}
+                    />
+                  </div>
+                  <span className="text-md sm:text-lg">{item.name}</span>
+                </div>
+              ))}
+            </motion.div>
+            <motion.div
+              className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3 py-[10px] sm:py-[20px] px-[30px] sm:shadow-[rgba(0,0,0,0.24)_0px_3px_8px]"
+              initial={{ y: 50 }}
+              variants={{
+                open: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+                closed: { opacity: 0 },
+              }}
+            >
+              <div className=" col-span-2 sm:col-span-2 md:col-span-3 lg:col-span-2 2xl:col-span-3">
+                <h1 className="text-center text-2xl sm:text-3xl font-bold mb-[25px] font-roboto">
+                  App Frontend
+                </h1>
+              </div>
+              {skillGroup['App_Frontend'].map((item, key) => (
+                <div className="flex items-center gap-[15px] mb-[10px]">
+                  <div className="border rounded-full border-neutral-300 w-[55px] h-[55px] lg:w-[70px] lg:h-[70px] relative">
+                    <Image
+                      layout="fill"
+                      objectFit="cover"
+                      src={item.src}
+                      alt={item.name}
+                    />
+                  </div>
+                  <span className="text-md sm:text-lg">{item.name}</span>
+                </div>
+              ))}
+            </motion.div>
+            <motion.div
+              className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3 py-[10px] sm:py-[20px] px-[30px] sm:shadow-[rgba(0,0,0,0.24)_0px_3px_8px]"
+              initial={{ y: 50 }}
+              variants={{
+                open: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+                closed: { opacity: 0 },
+              }}
+            >
+              <div className=" col-span-2 sm:col-span-2 md:col-span-3 lg:col-span-2 2xl:col-span-3">
+                <h1 className="text-center text-2xl sm:text-3xl font-bold mb-[25px] font-roboto">
+                  Deploy
+                </h1>
+              </div>
+              {skillGroup['Deploy'].map((item, key) => (
+                <div className="flex items-center gap-[15px] mb-[10px]">
+                  <div className="border rounded-full border-neutral-300 w-[55px] h-[55px] lg:w-[70px] lg:h-[70px] relative">
+                    <Image
+                      layout="fill"
+                      objectFit="cover"
+                      src={item.src}
+                      alt={item.name}
+                    />
+                  </div>
+                  <span className="text-md sm:text-lg">{item.name}</span>
+                </div>
+              ))}
+            </motion.div>
+            <motion.div
+              className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3 py-[10px] sm:py-[20px] px-[30px] sm:shadow-[rgba(0,0,0,0.24)_0px_3px_8px]"
+              initial={{ y: 50 }}
+              variants={{
+                open: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+                closed: { opacity: 0 },
+              }}
+            >
+              <div className=" col-span-2 sm:col-span-2 md:col-span-3 lg:col-span-2 2xl:col-span-3">
+                <h1 className="text-center text-2xl sm:text-3xl font-bold mb-[25px] font-roboto">
+                  ETC
+                </h1>
+              </div>
+              {skillGroup['etc'].map((item, key) => (
+                <div className="flex items-center gap-[15px] mb-[10px]">
+                  <div className="border rounded-full border-neutral-300 w-[55px] h-[55px] lg:w-[70px] lg:h-[70px] relative">
+                    <Image
+                      layout="fill"
+                      objectFit="cover"
+                      src={item.src}
+                      alt={item.name}
+                    />
+                  </div>
+                  <span className="text-md sm:text-lg">{item.name}</span>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
       </motion.div>
     </div>
   );

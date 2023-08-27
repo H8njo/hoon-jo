@@ -346,14 +346,17 @@ const Skills = () => {
       }}
     >
       <ToolBox
+        isOpenList={isOpenDetail}
         shakeScene={shakeScene}
         sortSkills={sortSkills}
+        openList={onOpenList}
+        closeList={onCloseList}
         reset={resetWorld}
       />
       <List
         onOpenList={onOpenList}
         onCloseList={onCloseList}
-        skillCategories={skillCategories}
+        skills={skills}
         isOpened={isOpenDetail}
         isShowTitle={showTitle}
       />
