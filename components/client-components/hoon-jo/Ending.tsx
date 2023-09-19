@@ -1,4 +1,4 @@
-const Footer = () => {
+const Ending = () => {
   return (
     <section className="sm:h-[80vh] md:h-[110vh] flex justify-center items-center flex-col pb-[150px] sm:pb-0">
       <article className="w-[100%] sm:w-[80%] pt-[300px] px-[20px]">
@@ -20,4 +20,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default Ending;
