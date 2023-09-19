@@ -21,7 +21,7 @@ const PageAnimation = ({ animate }: AnimationPageProps) => {
 
   return (
     <>
-      <div className="fixed h-full w-full grid grid-cols-12 divide-x divide-gray">
+      <div className="fixed h-full w-full grid grid-cols-12 divide-x divide-[#E0D3C3]">
         {Array(12)
           .fill(null)
           .map((_, key) => (
@@ -30,7 +30,7 @@ const PageAnimation = ({ animate }: AnimationPageProps) => {
       </div>
 
       <motion.div
-        className="fixed w-screen h-screen grid grid-cols-12 divide-x overflow-hidden divide-gray"
+        className="fixed w-screen h-screen grid grid-cols-12 divide-x overflow-hidden divide-[#E0D3C3]"
         animate={animateState}
         variants={{
           show: {
