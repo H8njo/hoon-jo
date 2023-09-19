@@ -28,6 +28,7 @@ export default async function Post({ params }: any) {
         <LifeOutsideWork instagram={instagramPromise} />
       </Suspense>
       <Ending />
+      <Footer />
     </main>
   );
 }

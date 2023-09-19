@@ -2,7 +2,7 @@
 import { RedirectContext } from '@/context/redirect.context';
 import { motion } from 'framer-motion';
 import { useContext } from 'react';
-import { BsGithub, BsDiscord, BsInstagram } from 'react-icons/bs';
+import { BsGithub, BsLinkedin, BsInstagram } from 'react-icons/bs';
 import { SiGmail } from 'react-icons/si';
 
 export default function Home() {
@@ -46,9 +46,9 @@ export default function Home() {
       hoverBackground: '#1f4597',
     },
     {
-      siteName: 'Discord',
+      siteName: 'LinkedIn',
       id: 'hoonjo',
-      icon: <BsDiscord fontSize={60} />,
+      icon: <BsLinkedin fontSize={60} />,
       background: '#6c75f4',
       hoverBackground: '#5b63d3',
     },

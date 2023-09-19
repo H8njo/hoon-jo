@@ -1,17 +1,16 @@
 'use client';
+import Footer from '@/components/client-components/Footer';
 import Markdown from '@/components/client-components/Markdown';
 import { projects } from '@/constants/variables';
-import { AnimatePresence, motion, useScroll, useSpring } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import _ from 'lodash';
 import Image from 'next/image';
 import React, { useRef, useState } from 'react';
 import { IoArrowBackOutline } from 'react-icons/io5';
 import { MdArrowBackIos, MdArrowForwardIos } from 'react-icons/md';
-import { AiOutlinePlus } from 'react-icons/ai';
 
 import 'swiper/css';
-import { Pagination, Navigation } from 'swiper/modules';
-import { Swiper, SwiperSlide, useSwiper, useSwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 type Props = {};
 
@@ -126,90 +125,103 @@ const Projects = (props: Props) => {
         )}
 
         {showDetail && (
-          <div className="px-[30px] md:px-[100px] lg:px-[150px] xl:px-[250px]">
-            <div className="py-[25px] fixed z-20 mix-blend-difference invert">
-              <IoArrowBackOutline
-                fontSize={50}
-                onClick={() => {
-                  visibleImages
-                    ? setVisibleImages(false)
-                    : setShowDetail(false);
-                }}
-              />
-            </div>
-            <div className="w-full markdown-container mt-[100px]">
-              <div className="flex flex-row items-center">
-                <div className="h-auto w-[11vw] md:w-[8vw] pr-[3%]">
-                  <Image
-                    src="/images/skills/ajax.png"
-                    alt={'test'}
-                    width={300}
-                    height={300}
-                  />
-                </div>
-                <h1 className="uppercase font-bodoniModa text-[9vw] md:text-[6.5vw] xl:text-[6.5vw] font-semibold">
-                  {projects[0].name}
-                </h1>
-              </div>
-              <div className="px-[10px] xl:px-[100px] pt-[20px] max-w-[1200px] m-auto">
-                <motion.div
-                  className="relative"
-                  // whileHover="hoverImage"
-                  // whileHover={{ scale: 1.05 }}
-                  variants={{
-                    hoverImage: {
-                      boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
-                      scale: 1.05,
-                    },
+          <div>
+            <div className="px-[20px] md:px-[100px] lg:px-[150px] xl:px-[250px] pb-[150px]">
+              <div className="py-[25px] fixed z-20 mix-blend-difference invert top-0">
+                <IoArrowBackOutline
+                  fontSize={50}
+                  onClick={() => {
+                    visibleImages
+                      ? setVisibleImages(false)
+                      : setShowDetail(false);
                   }}
-                  onClick={() => setVisibleImages(true)}
-                >
+                />
+              </div>
+              <div className="w-full markdown-container mt-[100px]">
+                <div className="flex flex-row items-center">
+                  <div className="h-auto w-[11vw] md:w-[8vw] pr-[3%]">
+                    <Image
+                      src="/images/skills/ajax.png"
+                      alt={'test'}
+                      width={300}
+                      height={300}
+                    />
+                  </div>
+                  <h1 className="uppercase font-bodoniModa text-[9vw] md:text-[6.5vw] xl:text-[6.5vw] font-semibold">
+                    {projects[0].name}
+                  </h1>
+                </div>
+                <div className="px-[10px] xl:px-[100px] pt-[20px] max-w-[1200px] m-auto">
                   <motion.div
-                    className="absolute w-full h-full cursor-pointer bg-[#191919] z-10 flex justify-center items-center"
-                    initial={{ opacity: 0 }}
-                    layoutId="seeMore"
-                    variants={{
-                      hoverImage: { opacity: 0.6 },
-                    }}
-                  >
-                    <motion.span
-                      className="text-white text-xl"
-                      initial={{ opacity: 0 }}
-                      variants={{ hoverImage: { opacity: 1 } }}
-                    >
-                      See More +{projects[0].screenshots.length}
-                    </motion.span>
-                  </motion.div>
-                  <motion.div
-                    className="border-2 rounded-md border-[#ac967a]"
-                    initial={{ filter: 'blur(0px)' }}
+                    className="relative"
+                    whileHover="hoverImage"
+                    // whileHover={{ scale: 1.05 }}
                     variants={{
                       hoverImage: {
-                        filter: 'blur(2px)',
+                        boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
+                        scale: 1.05,
+                        transition: { delay: 0.5 },
                       },
                     }}
+                    onClick={() => setVisibleImages(true)}
                   >
-                    <div className="h-[24px] bg-[#ebdfcf] border-b-2 border-[#ac967a]">
-                      <div className="pl-[8px] flex items-center h-full gap-[4px]">
-                        <span className="inline-block w-[12px] h-[12px] rounded-full bg-[#d60000]" />
-                        <span className="inline-block w-[12px] h-[12px] rounded-full bg-[#ecee00]" />
-                        <span className="inline-block w-[12px] h-[12px] rounded-full bg-[#00c400]" />
+                    <motion.div
+                      className="absolute w-full h-full cursor-pointer bg-[#191919] z-10 flex justify-center items-center"
+                      initial={{ opacity: 0 }}
+                      layoutId="seeMore"
+                      variants={{
+                        hoverImage: {
+                          opacity: 0.6,
+                          transition: { delay: 0.5 },
+                        },
+                      }}
+                    >
+                      <motion.span
+                        className="text-white text-xl"
+                        initial={{ opacity: 0 }}
+                        variants={{
+                          hoverImage: {
+                            opacity: 1,
+                            transition: { delay: 0.5 },
+                          },
+                        }}
+                      >
+                        See More +{projects[0].screenshots.length}
+                      </motion.span>
+                    </motion.div>
+                    <motion.div
+                      className="border-2 rounded-md border-[#ac967a]"
+                      initial={{ filter: 'blur(0px)' }}
+                      variants={{
+                        hoverImage: {
+                          filter: 'blur(2px)',
+                          transition: { delay: 0.5 },
+                        },
+                      }}
+                    >
+                      <div className="h-[24px] bg-[#ebdfcf] border-b-2 border-[#ac967a]">
+                        <div className="pl-[8px] flex items-center h-full gap-[4px]">
+                          <span className="inline-block w-[12px] h-[12px] rounded-full bg-[#d60000]" />
+                          <span className="inline-block w-[12px] h-[12px] rounded-full bg-[#ecee00]" />
+                          <span className="inline-block w-[12px] h-[12px] rounded-full bg-[#00c400]" />
+                        </div>
                       </div>
-                    </div>
-                    <motion.div layoutId="thumbnail">
-                      <Image
-                        src={projects[0].screenshots[0]}
-                        width={1900}
-                        height={800}
-                        alt={projects[0].name}
-                      />
+                      <motion.div layoutId="thumbnail">
+                        <Image
+                          src={projects[0].screenshots[0]}
+                          width={1900}
+                          height={800}
+                          alt={projects[0].name}
+                        />
+                      </motion.div>
                     </motion.div>
                   </motion.div>
-                </motion.div>
-              </div>
+                </div>
 
-              <Markdown text={projects[0].detail} />
+                <Markdown text={projects[0].detail} />
+              </div>
             </div>
+            <Footer />
           </div>
         )}
 
@@ -230,7 +242,11 @@ const Projects = (props: Props) => {
             >
               <MdArrowForwardIos />
             </button>
-            <div className="w-[100%] m-auto h-full relative overflow-scroll">
+            <motion.div
+              className="w-[100%] m-auto h-full relative overflow-scroll"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { delay: 0.4 } }}
+            >
               <Swiper
                 style={{ width: '100%' }}
                 onSwiper={(swiper) => {
@@ -247,14 +263,10 @@ const Projects = (props: Props) => {
                   </SwiperSlide>
                 ))}
               </Swiper>
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </main>
-      <motion.div
-        className=" bg-black fixed left-0 w-full h-[15px]"
-        style={{ scaleX }}
-      />
     </>
   );
 };
