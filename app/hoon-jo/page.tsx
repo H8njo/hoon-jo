@@ -1,5 +1,6 @@
+import Footer from '@/components/client-components/Footer';
 import About from '@/components/client-components/hoon-jo/About';
-import Footer from '@/components/client-components/hoon-jo/Footer';
+import Ending from '@/components/client-components/hoon-jo/Ending';
 import LifeOutsideWork from '@/components/client-components/hoon-jo/LifeOutsideWork';
 import Services from '@/components/client-components/hoon-jo/Services';
 import { Suspense } from 'react';
@@ -26,6 +27,7 @@ export default async function Post({ params }: any) {
       <Suspense fallback={<div>Loading Contents..</div>}>
         <LifeOutsideWork instagram={instagramPromise} />
       </Suspense>
+      <Ending />
       <Footer />
     </main>
   );
