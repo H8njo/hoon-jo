@@ -51,7 +51,7 @@ const Projects = (props: Props) => {
                   </div>
                   <motion.div
                     layoutId="thumbnail"
-                    className="aspect-video cursor-pointer relative z-50"
+                    className="cursor-pointer relative z-50 w-[100%]"
                     onClick={() => setShowDetail(true)}
                   >
                     <Image
@@ -139,14 +139,6 @@ const Projects = (props: Props) => {
               </div>
               <div className="w-full markdown-container mt-[100px]">
                 <div className="flex flex-row items-center">
-                  <div className="h-auto w-[11vw] md:w-[8vw] pr-[3%]">
-                    <Image
-                      src="/images/skills/ajax.png"
-                      alt={'test'}
-                      width={300}
-                      height={300}
-                    />
-                  </div>
                   <h1 className="uppercase font-bodoniModa text-[9vw] md:text-[6.5vw] xl:text-[6.5vw] font-semibold">
                     {projects[0].name}
                   </h1>
