@@ -23,7 +23,8 @@ const Footer = (props: Props) => {
     },
   ];
   return (
-    <div className="h-[200px] bg-[#242424] flex items-center justify-center">
+    <div className="h-[200px] bg-[#242424] flex flex-col items-center justify-center">
+      <p className="mb-[20px] text-white">Designed by Hoonjo</p>
       <ul className="flex text-white  gap-[20px]">
         {HoonJoCards.map(({ icon, background }, idx) => (
           <li
@@ -35,9 +36,6 @@ const Footer = (props: Props) => {
           </li>
         ))}
       </ul>
-      <div>
-        <p></p>
-      </div>
     </div>
   );
 };
