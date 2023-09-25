@@ -455,19 +455,301 @@ export const skills: Skills = [
   },
 ];
 
-export const projects = [
-  'hoon-jo',
-  'hyundai',
-  'kisti',
-  'mcst-portal',
-  'ctf',
-  'zipida-ver.2',
-  'grida',
-  'moj-portal',
-  'rittal',
-  'gcc',
-  'mou-portal',
-  'dugi-dugi',
-  'zipida-ver.1',
-  'reservation',
+type Projects = {
+  name: string;
+  skills: string[];
+  date: string;
+  description: string;
+  detail: string;
+  screenshots: string[];
+}[];
+export const projects: Projects = [
+  {
+    name: 'hoon-jo',
+    skills: ['WEB', 'Front-end', 'Deploy'],
+    date: '2023-01-01',
+    description:
+      '현재 보고있는 포트폴리오에 대한 자세한 개발 과정입니다. 프론트엔드 주력 개발자로서 인터랙티브한 애니메이션들과 다양한 레이아웃들을 사용했습니다. 프로젝트 기획에 대해 가장 섬세하고 깊게 생각한 프로젝트 중 하나입니다.',
+    detail: `## 주요 목표
+다양한 프로젝트를 바탕으로 나를 어떻게 표현해야할까를 깊게 생각했다. 프론트엔드를 주력으로 하고 있기 때문에 다양한 인터랙션들 보여줘야겠다고 생각 했다. 여태까지 작업해왔던 프로젝트들은 어느정도 기획이나 디자인 틀이 잡혀져 있었지만, 이번 프로젝트에서는 기획부터 배포까지 혼자 작업하며, 나를 표현할 방법과 평범한 포트폴리오를 어떻게 벗어날 것인가에 대해 고민을 가장 많이 해야 했다.
+## 담당 (전체)
+- 프로젝트 기획, 디자인, 개발, 배포
+- Page Transition 및 인터랙션
+- 반응형
+- Matter.js를 이용한 오브젝트 물리법칙 적용
+- Next.js를 통한 Server Side 환경 구축
+
+## 배운점
+- Matter.js를 통한 물리법칙 구현으로 Canvas에 대한 지식 및 활용
+- 레이아웃 구성능력, 애니메이션 고도화
+- 홈페이지 디자인에 대한 넓은 관점이 생김
+- SSR에 대한 더 넓은 이해, CSR과 SSR의 내부 구동 동작의 차이점
+
+## 아쉬운점
+- 최신 버전인 NEXT 13으로 작업하며 Framer와의 충돌로 깔끔하지 못한 Page Transition
+
+## 핵심 사용 기술
+- React
+- Typescript
+- Next.js (Server Side Rendering)
+- Framer Motion
+- instagram-api
+- Matter.js
+- Tailwind CSS
+- Vercel
+`,
+    screenshots: [
+      '/images/projects/hoon-jo/1.png',
+      '/images/projects/hoon-jo/2.png',
+      '/images/projects/hoon-jo/3.png',
+      '/images/projects/hoon-jo/4.png',
+      '/images/projects/hoon-jo/5.png',
+      '/images/projects/hoon-jo/6.png',
+      '/images/projects/hoon-jo/7.png',
+      '/images/projects/hoon-jo/8.png',
+    ],
+  },
+  {
+    name: 'hyundai',
+    skills: ['WEB', 'Front-end', 'Back-end', 'Deploy'],
+    date: '2023-01-02',
+    description: '',
+    detail: ``,
+    screenshots: [
+      '/images/projects/hyundai/1.png',
+      '/images/projects/hyundai/2.png',
+      '/images/projects/hyundai/3.png',
+      '/images/projects/hyundai/4.png',
+      '/images/projects/hyundai/5.png',
+      '/images/projects/hyundai/6.png',
+      '/images/projects/hyundai/7.png',
+      '/images/projects/hyundai/8.png',
+      '/images/projects/hyundai/9.png',
+      '/images/projects/hyundai/10.png',
+      '/images/projects/hyundai/11.png',
+    ],
+  },
+  {
+    name: 'kisti',
+    skills: ['WEB', 'Front-end', 'Back-end', 'Deploy'],
+    date: '2023-01-03',
+    description: '',
+    detail: ``,
+    screenshots: [
+      '/images/projects/kisti/1.png',
+      '/images/projects/kisti/2.png',
+      '/images/projects/kisti/3.png',
+      '/images/projects/kisti/4.png',
+      '/images/projects/kisti/5.png',
+      '/images/projects/kisti/6.png',
+      '/images/projects/kisti/7.png',
+      '/images/projects/kisti/8.png',
+      '/images/projects/kisti/9.png',
+      '/images/projects/kisti/10.png',
+      '/images/projects/kisti/11.png',
+      '/images/projects/kisti/12.png',
+      '/images/projects/kisti/13.png',
+      '/images/projects/kisti/14.png',
+      '/images/projects/kisti/15.png',
+      '/images/projects/kisti/16.png',
+      '/images/projects/kisti/17.png',
+      '/images/projects/kisti/18.png',
+      '/images/projects/kisti/19.png',
+      '/images/projects/kisti/20.png',
+      '/images/projects/kisti/21.png',
+      '/images/projects/kisti/22.png',
+      '/images/projects/kisti/23.png',
+      '/images/projects/kisti/24.png',
+    ],
+  },
+  {
+    name: 'mcst-portal',
+    skills: ['WEB', 'Front-end', 'Back-end', 'Deploy'],
+    date: '2023-01-04',
+    description: '',
+    detail: ``,
+    screenshots: [
+      '/images/projects/mcst/1.png',
+      '/images/projects/mcst/2.png',
+      '/images/projects/mcst/3.png',
+      '/images/projects/mcst/4.png',
+      '/images/projects/mcst/5.png',
+      '/images/projects/mcst/6.png',
+      '/images/projects/mcst/7.png',
+      '/images/projects/mcst/8.png',
+      '/images/projects/mcst/9.png',
+      '/images/projects/mcst/10.png',
+      '/images/projects/mcst/11.png',
+      '/images/projects/mcst/12.png',
+      '/images/projects/mcst/13.png',
+      '/images/projects/mcst/14.png',
+      '/images/projects/mcst/15.png',
+    ],
+  },
+  {
+    name: 'rittal-admin',
+    skills: ['WEB', 'Front-end', 'Back-end'],
+    date: '2023-01-04',
+    description: '',
+    detail: ``,
+    screenshots: [
+      '/images/projects/rittal-admin/1.png',
+      '/images/projects/rittal-admin/2.png',
+      '/images/projects/rittal-admin/3.png',
+      '/images/projects/rittal-admin/4.png',
+      '/images/projects/rittal-admin/5.png',
+      '/images/projects/rittal-admin/6.png',
+      '/images/projects/rittal-admin/7.png',
+      '/images/projects/rittal-admin/8.png',
+      '/images/projects/rittal-admin/9.png',
+      '/images/projects/rittal-admin/10.png',
+    ],
+  },
+  {
+    name: 'ctf',
+    skills: ['WEB', 'Front-end'],
+    date: '2023-01-01',
+    description: '',
+    detail: ``,
+    screenshots: [
+      '/images/projects/ctf/1.png',
+      '/images/projects/ctf/2.png',
+      '/images/projects/ctf/3.png',
+      '/images/projects/ctf/4.png',
+      '/images/projects/ctf/5.png',
+      '/images/projects/ctf/6.png',
+      '/images/projects/ctf/7.png',
+      '/images/projects/ctf/8.png',
+      '/images/projects/ctf/9.png',
+      '/images/projects/ctf/10.png',
+      '/images/projects/ctf/11.png',
+      '/images/projects/ctf/12.png',
+      '/images/projects/ctf/13.png',
+      '/images/projects/ctf/14.png',
+    ],
+  },
+  {
+    name: 'zipida',
+    skills: ['WEB', 'Front-end', 'Back-end', 'Deploy'],
+    date: '2023-01-05',
+    description: '',
+    detail: ``,
+    screenshots: [
+      '/images/projects/zipida/1.png',
+      '/images/projects/zipida/2.png',
+      '/images/projects/zipida/3.png',
+      '/images/projects/zipida/4.png',
+      '/images/projects/zipida/5.png',
+      '/images/projects/zipida/6.png',
+    ],
+  },
+  {
+    name: 'jspo',
+    skills: ['WEB', 'Front-end', 'Back-end', 'Deploy'],
+    date: '2023-01-07',
+    description: '',
+    detail: ``,
+    screenshots: [
+      '/images/projects/jspo/1.png',
+      '/images/projects/jspo/2.png',
+      '/images/projects/jspo/3.png',
+      '/images/projects/jspo/4.png',
+      '/images/projects/jspo/5.png',
+      '/images/projects/jspo/6.png',
+      '/images/projects/jspo/7.png',
+      '/images/projects/jspo/8.png',
+      '/images/projects/jspo/9.png',
+      '/images/projects/jspo/10.png',
+      '/images/projects/jspo/11.png',
+      '/images/projects/jspo/12.png',
+      '/images/projects/jspo/13.png',
+      '/images/projects/jspo/14.png',
+      '/images/projects/jspo/15.png',
+      '/images/projects/jspo/16.png',
+      '/images/projects/jspo/17.png',
+    ],
+  },
+  {
+    name: 'rittal',
+    skills: ['WEB', 'Front-end', 'Back-end', 'Deploy'],
+    date: '2023-01-08',
+    description: '',
+    detail: ``,
+    screenshots: [
+      '/images/projects/rittal/1.png',
+      '/images/projects/rittal/2.png',
+      '/images/projects/rittal/3.png',
+      '/images/projects/rittal/4.png',
+      '/images/projects/rittal/5.png',
+      '/images/projects/rittal/6.png',
+      '/images/projects/rittal/7.png',
+      '/images/projects/rittal/8.png',
+      '/images/projects/rittal/9.png',
+      '/images/projects/rittal/10.png',
+      '/images/projects/rittal/11.png',
+      '/images/projects/rittal/12.png',
+      '/images/projects/rittal/13.png',
+      '/images/projects/rittal/14.png',
+      '/images/projects/rittal/15.png',
+    ],
+  },
+  {
+    name: 'gcc',
+    skills: ['WEB', 'Front-end'],
+    date: '2023-01-09',
+    description: '',
+    detail: ``,
+    screenshots: [
+      '/images/projects/gcc/1.png',
+      '/images/projects/gcc/2.png',
+      '/images/projects/gcc/3.png',
+      '/images/projects/gcc/4.png',
+      '/images/projects/gcc/5.png',
+      '/images/projects/gcc/6.png',
+      '/images/projects/gcc/7.png',
+      '/images/projects/gcc/8.png',
+      '/images/projects/gcc/9.png',
+      '/images/projects/gcc/10.png',
+      '/images/projects/gcc/11.png',
+      '/images/projects/gcc/12.png',
+      '/images/projects/gcc/13.png',
+      '/images/projects/gcc/14.png',
+    ],
+  },
+  {
+    name: 'dugi-dugi',
+    skills: ['APP', 'Front-end'],
+    date: '2023-01-11',
+    description: '',
+    detail: ``,
+    screenshots: [
+      '/images/projects/dugi-dugi/1.png',
+      '/images/projects/dugi-dugi/2.png',
+      '/images/projects/dugi-dugi/3.png',
+      '/images/projects/dugi-dugi/4.png',
+      '/images/projects/dugi-dugi/5.png',
+      '/images/projects/dugi-dugi/6.png',
+      '/images/projects/dugi-dugi/7.png',
+      '/images/projects/dugi-dugi/8.png',
+      '/images/projects/dugi-dugi/9.png',
+      '/images/projects/dugi-dugi/10.png',
+      '/images/projects/dugi-dugi/11.png',
+    ],
+  },
+  {
+    name: 'reservation',
+    skills: ['WEB', 'Front-end'],
+    date: '2023-01-13',
+    description: '',
+    detail: ``,
+    screenshots: [
+      '/images/projects/reservation/1.png',
+      '/images/projects/reservation/2.png',
+      '/images/projects/reservation/3.png',
+      '/images/projects/reservation/4.png',
+      '/images/projects/reservation/5.png',
+      '/images/projects/reservation/6.png',
+      '/images/projects/reservation/7.png',
+    ],
+  },
 ];
