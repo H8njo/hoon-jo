@@ -1,3 +1,4 @@
+'use client';
 import _ from 'lodash';
 import Image from 'next/image';
 
@@ -8,6 +9,7 @@ const Instagram = async ({ promise }: any) => {
     _.shuffle(_.filter(data, (item) => item.media_type !== 'VIDEO')),
     _.round(data.length / 2)
   );
+  console.log(instagram1);
   return (
     <>
       <div
