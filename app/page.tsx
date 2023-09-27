@@ -8,8 +8,7 @@ import { SiGmail } from 'react-icons/si';
 export default function Home() {
   const { redirect } = useContext(RedirectContext);
   const navItemProps = {
-    style: { fontSize: 80 },
-    className: 'nav-text cursor-pointer',
+    className: 'nav-text cursor-pointer text-[50px] md:text-[80px]',
     initial: { x: '200%' },
     whileHover: { filter: 'blur(0px)', scale: 1.2 },
     transition: { duration: 0.4 },
@@ -25,6 +24,7 @@ export default function Home() {
     {
       siteName: 'Github',
       id: 'jyhisgood',
+      href: 'https://github.com/jyhisgood',
       icon: <BsGithub fontSize={60} />,
       background: '#333333',
       hoverBackground: '#202020',
@@ -32,6 +32,7 @@ export default function Home() {
     {
       siteName: 'Instagram',
       id: 'younghooncho_',
+      href: 'https://www.instagram.com/younghooncho_/',
       icon: <BsInstagram fontSize={60} />,
       background:
         'linear-gradient(45deg, #506cf8, #6a62f6, #8c3fc0, #cd3b8e, #ee3673, #ff4949)',
@@ -41,12 +42,14 @@ export default function Home() {
     {
       siteName: 'Mail',
       id: 'jaiemf@gmail.com',
+      href: 'mailto:jaiemf@gmail.com',
       icon: <SiGmail fontSize={60} />,
       background: '#2752ad',
       hoverBackground: '#1f4597',
     },
     {
       siteName: 'LinkedIn',
+      href: 'https://www.linkedin.com/in/younghoon-cho-a225b5286',
       id: 'hoonjo',
       icon: <BsLinkedin fontSize={60} />,
       background: '#6c75f4',
@@ -57,13 +60,16 @@ export default function Home() {
   return (
     <>
       <motion.div
-        className="h-[100vh] flex"
+        className="h-[100vh] flex flex-col md:flex-row"
         animate="show"
         transition={{ staggerChildren: 0.15, delayChildren: 1 }}
       >
-        <ul className="w-[50%] h-full flex text-white">
+        <ul className="w-[100%] md:w-[50%] h-full flex text-white">
           {HoonJoCards.map(
-            ({ siteName, id, icon, background, hoverBackground }, idx) => (
+            (
+              { siteName, id, icon, background, hoverBackground, href },
+              idx
+            ) => (
               <motion.li
                 initial={{ y: -1100 }}
                 variants={{
@@ -73,7 +79,7 @@ export default function Home() {
                   },
                 }}
                 key={idx}
-                className="basis-1/6 flex justify-center items-center relative overflow-hidden"
+                className="basis-1/4 md:basis-1/6 flex justify-center items-center relative overflow-hidden"
                 style={{ background }}
               >
                 <motion.div
@@ -86,16 +92,14 @@ export default function Home() {
                       variants={{ hover: { height: '100%' } }}
                       className="overflow-hidden"
                       transition={{ duration: 0.6 }}
+                      onClick={() => window.open(href)}
                     >
                       <div
-                        className="h-screen w-full flex justify-center items-center relative"
+                        className="h-full md:h-screen w-full flex justify-center items-center"
                         style={{ background: hoverBackground }}
                       >
                         <div className="absolute top-[10%] z-20">{icon}</div>
-                        <h1
-                          className="-rotate-90 font-pacifico whitespace-nowrap "
-                          style={{ fontSize: 70 }}
-                        >
+                        <h1 className="w-full -rotate-90 font-pacifico whitespace-nowrap text-[40px] sm:text-[55px] md:text-[40px] lg:text-[50px] xl:text-[80px]">
                           {id}
                         </h1>
                       </div>
@@ -103,18 +107,15 @@ export default function Home() {
                   </div>
                 </motion.div>
                 <div className="absolute top-[10%] opacity-40 z-20">{icon}</div>
-                <h1
-                  className="-rotate-90 font-pacifico whitespace-nowrap opacity-40"
-                  style={{ fontSize: 80 }}
-                >
+                <h1 className="-rotate-90 font-pacifico whitespace-nowrap opacity-40 text-[40px] sm:text-[55px] md:text-[40px] lg:text-[50px] xl:text-[80px]">
                   {siteName}
                 </h1>
               </motion.li>
             )
           )}
         </ul>
-        <nav className="w-[50%] h-full flex justify-end items-end">
-          <ul className="h-[60%] flex flex-col pr-[20%] pb-[10%] font-bodoniModa italic font-bold">
+        <nav className="w-[100%] md:w-[50%] h-full flex justify-end items-center md:items-end">
+          <ul className="h-auto md:h-[60%] flex flex-col pr-[20%] pb-[10%] font-bodoniModa italic font-bold">
             <li className="basis-1/4 flex items-center justify-end">
               <button onClick={() => redirect('/hoon-jo')}>
                 <motion.h1 {...navItemProps}>About</motion.h1>

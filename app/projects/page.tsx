@@ -31,7 +31,11 @@ const Projects = (props: Props) => {
       <main className="flex flex-col sm:flex-row h-screen relative z-150">
         {showDetail || (
           <>
-            <aside className="w-[100%] sm:w-[50%] h-auto relative flex-none pt-[90px] sm:pt-0 pb-[30px]">
+            <motion.aside
+              className="w-[100%] sm:w-[50%] h-auto relative flex-none pt-[90px] sm:pt-0 pb-[30px]"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+            >
               <div className="sm:fixed w-[100%] sm:w-[50%] flex flex-col sm:justify-center px-[15px] sm:px-[20px] lg:px-[80px] xl:px-[120px] h-full">
                 <div className="text-center mb-[10px]">
                   <span
@@ -50,11 +54,11 @@ const Projects = (props: Props) => {
                     </div>
                   </div>
                   <motion.div
-                    layoutId="thumbnail"
                     className="cursor-pointer relative z-50 w-[100%]"
                     onClick={() => setShowDetail(true)}
                   >
                     <Image
+                      loading="lazy"
                       src={projects[selected].screenshots?.[0]}
                       alt={projects[selected].name}
                       width={800}
@@ -63,19 +67,21 @@ const Projects = (props: Props) => {
                   </motion.div>
                 </div>
                 <div className="mt-[20px]">
-                  <h1 className="text-center font-extrabold mb-[2px] uppercase font-bodoniModa text-[8vw] sm:text-[5vw]">
+                  <h1 className="text-center font-extrabold mb-[2px] uppercase font-bodoniModa text-[8vw] sm:text-[4vw]">
                     {projects[selected].name}
                   </h1>
                   <p
-                    style={{ color: '#212121' }}
-                    className="text-center text-[3vw] sm:text-[1.5vw] xl:text-[18px] md:px-[50px] lg:px-[30px]"
+                    style={{
+                      color: '#212121',
+                    }}
+                    className="text-center text-[3vw] sm:text-[1.5vw] xl:text-[18px] md:px-[50px] lg:px-[30px] line-clamp-4 break-keep"
                   >
                     {projects[selected].description}
                   </p>
                 </div>
               </div>
-            </aside>
-            <main className="w-[100%] sm:w-[50%] overflow-y-scroll sm:h-auto flex flex-col gap-[1vw] sm:pt-[110px] pb-[100px] pl-[15px] sm:pl-0 relative">
+            </motion.aside>
+            <motion.main className="w-[100%] sm:w-[50%] overflow-y-scroll sm:h-auto flex flex-col gap-[1vw] sm:pt-[110px] pb-[100px] pl-[15px] sm:pl-0 relative">
               {projects.map((item, idx) => (
                 <motion.article
                   className="relative sm:w-max"
@@ -120,12 +126,12 @@ const Projects = (props: Props) => {
                   </div>
                 </motion.article>
               ))}
-            </main>
+            </motion.main>
           </>
         )}
 
         {showDetail && (
-          <div>
+          <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
             <div className="px-[20px] md:px-[100px] lg:px-[150px] xl:px-[250px] pb-[150px]">
               <div className="py-[25px] fixed z-20 mix-blend-difference invert top-0">
                 <IoArrowBackOutline
@@ -140,10 +146,13 @@ const Projects = (props: Props) => {
               <div className="w-full markdown-container mt-[100px]">
                 <div className="flex flex-row items-center">
                   <h1 className="uppercase font-bodoniModa text-[9vw] md:text-[6.5vw] xl:text-[6.5vw] font-semibold">
-                    {projects[0].name}
+                    {projects[selected].name}
                   </h1>
                 </div>
-                <div className="px-[10px] xl:px-[100px] pt-[20px] max-w-[1200px] m-auto">
+
+                <Markdown text={projects[selected].detail} />
+
+                <div className="px-[10px] xl:px-[100px] pt-[50px] max-w-[1200px] m-auto">
                   <motion.div
                     className="relative"
                     whileHover="hoverImage"
@@ -178,7 +187,7 @@ const Projects = (props: Props) => {
                           },
                         }}
                       >
-                        See More +{projects[0].screenshots.length}
+                        See More +{projects[selected].screenshots.length}
                       </motion.span>
                     </motion.div>
                     <motion.div
@@ -198,23 +207,21 @@ const Projects = (props: Props) => {
                           <span className="inline-block w-[12px] h-[12px] rounded-full bg-[#00c400]" />
                         </div>
                       </div>
-                      <motion.div layoutId="thumbnail">
+                      <motion.div>
                         <Image
-                          src={projects[0].screenshots[0]}
+                          src={projects[selected].screenshots[0]}
                           width={1900}
                           height={800}
-                          alt={projects[0].name}
+                          alt={projects[selected].name}
                         />
                       </motion.div>
                     </motion.div>
                   </motion.div>
                 </div>
-
-                <Markdown text={projects[0].detail} />
               </div>
             </div>
             <Footer />
-          </div>
+          </motion.div>
         )}
 
         {visibleImages && (
@@ -249,9 +256,14 @@ const Projects = (props: Props) => {
                 navigation={true}
                 pagination={true}
               >
-                {projects[0].screenshots.map((item, key) => (
+                {projects[selected].screenshots.map((item, key) => (
                   <SwiperSlide key={key}>
-                    <Image src={item} alt={'test'} width={9999} height={9999} />
+                    <Image
+                      src={item}
+                      alt={'screenshots'}
+                      width={9999}
+                      height={9999}
+                    />
                   </SwiperSlide>
                 ))}
               </Swiper>

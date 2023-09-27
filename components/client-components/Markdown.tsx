@@ -26,7 +26,13 @@ const Markdown = ({ text }: Props) => {
       />
     ),
     li: ({ node, ...props }: any) => (
-      <li {...props} className="mb-[4px] md:mb-[7px]" />
+      <li {...props} className="mb-[5px] md:mb-[10px]" />
+    ),
+    code: ({ node, ...props }: any) => (
+      <code
+        {...props}
+        className=" bg-[#ffcbcb] text-[#f62121] px-[4px] py-[2px] rounded-md text-[12px] md:text-[14px]"
+      />
     ),
   };
   return (
