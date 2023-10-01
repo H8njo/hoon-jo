@@ -59,10 +59,11 @@ const Projects = (props: Props) => {
                   >
                     <Image
                       loading="lazy"
+                      style={{ height: 'auto', width: '100%' }}
+                      width={1000}
+                      height={500}
                       src={projects[selected].screenshots?.[0]}
                       alt={projects[selected].name}
-                      width={800}
-                      height={500}
                     />
                   </motion.div>
                 </div>
