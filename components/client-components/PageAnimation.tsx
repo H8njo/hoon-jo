@@ -1,4 +1,5 @@
 'use client';
+import useWindowSize from '@/hooks/useWindowSize';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
@@ -11,6 +12,7 @@ const hidePauseDuration = 1400;
 const PageAnimation = ({ animate }: AnimationPageProps) => {
   const [animateState, setAnimateState] = useState<'show' | 'hide' | ''>('');
 
+  const { height } = useWindowSize();
   useEffect(() => {
     setAnimateState('show');
     const timeout = setTimeout(() => {
@@ -50,8 +52,8 @@ const PageAnimation = ({ animate }: AnimationPageProps) => {
               key={key}
               className="w-full h-full"
               style={{ backgroundColor: '#242424' }}
-              initial={{ y: -1000 }}
-              variants={{ show: { y: 0 }, hide: { y: 1000 } }}
+              initial={{ y: -height }}
+              variants={{ show: { y: 0 }, hide: { y: height } }}
               transition={{ ease: 'easeInOut', duration: 0.5 }}
             />
           ))}
