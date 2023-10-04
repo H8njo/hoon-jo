@@ -99,7 +99,7 @@ export default function Home() {
                         style={{ background: hoverBackground }}
                       >
                         <div className="absolute top-[10%] z-20">{icon}</div>
-                        <h1 className="w-full -rotate-90 font-pacifico whitespace-nowrap text-[40px] sm:text-[55px] md:text-[40px] lg:text-[50px] xl:text-[80px]">
+                        <h1 className="w-auto md:text-center -rotate-90  font-pacifico whitespace-nowrap text-[40px] sm:text-[55px] md:text-[40px] lg:text-[50px] xl:text-[80px]">
                           {id}
                         </h1>
                       </div>
