@@ -1,15 +1,16 @@
 'use client';
 import _ from 'lodash';
 import Image from 'next/image';
+import { instagram } from '@/constants/variables';
 
 const Instagram = async ({ promise }: any) => {
-  const { data } = await promise;
+  // const { data } = await promise;
 
   const [instagram1, instagram2] = _.chunk(
-    _.shuffle(_.filter(data, (item) => item.media_type !== 'VIDEO')),
-    _.round(data.length / 2)
+    _.shuffle(instagram),
+    _.round(instagram.length / 2)
   );
-  console.log(instagram1);
+
   return (
     <>
       <div
@@ -26,8 +27,8 @@ const Instagram = async ({ promise }: any) => {
               className="w-[120px] sm:w-[200px] md:w-[250px] lg:w-[300px] h-[120px] sm:h-[200px] md:h-[250px] lg:h-[300px] border-2 overflow-hidden border-black rounded-full flex"
             >
               <Image
-                src={item.media_url}
-                alt={item.caption}
+                src={item}
+                alt={'instagram' + key}
                 width={300}
                 height={300}
                 style={{ rotate: '23deg' }}
@@ -51,8 +52,8 @@ const Instagram = async ({ promise }: any) => {
               className="w-[120px] sm:w-[200px] md:w-[250px] lg:w-[300px] h-[120px] sm:h-[200px] md:h-[250px] lg:h-[300px] border-2 overflow-hidden border-black rounded-full flex"
             >
               <Image
-                src={item.media_url}
-                alt={item.caption}
+                src={item}
+                alt={'instagram' + key}
                 width={300}
                 height={300}
                 style={{ rotate: '23deg' }}

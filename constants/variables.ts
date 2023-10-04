@@ -455,6 +455,35 @@ export const skills: Skills = [
   },
 ];
 
+export const instagram: string[] = [
+  '/images/hoon-jo/instagram/instagram1.png',
+  '/images/hoon-jo/instagram/instagram2.png',
+  '/images/hoon-jo/instagram/instagram3.png',
+  '/images/hoon-jo/instagram/instagram4.png',
+  '/images/hoon-jo/instagram/instagram5.png',
+  '/images/hoon-jo/instagram/instagram6.png',
+  '/images/hoon-jo/instagram/instagram7.png',
+  '/images/hoon-jo/instagram/instagram8.png',
+  '/images/hoon-jo/instagram/instagram9.png',
+  '/images/hoon-jo/instagram/instagram10.png',
+  '/images/hoon-jo/instagram/instagram11.png',
+  '/images/hoon-jo/instagram/instagram12.png',
+  '/images/hoon-jo/instagram/instagram13.png',
+  '/images/hoon-jo/instagram/instagram14.png',
+  '/images/hoon-jo/instagram/instagram15.png',
+  '/images/hoon-jo/instagram/instagram16.png',
+  '/images/hoon-jo/instagram/instagram17.png',
+  '/images/hoon-jo/instagram/instagram18.png',
+  '/images/hoon-jo/instagram/instagram19.png',
+  '/images/hoon-jo/instagram/instagram20.png',
+  '/images/hoon-jo/instagram/instagram21.png',
+  '/images/hoon-jo/instagram/instagram22.png',
+  '/images/hoon-jo/instagram/instagram23.png',
+  '/images/hoon-jo/instagram/instagram24.png',
+  '/images/hoon-jo/instagram/instagram25.png',
+  '/images/hoon-jo/instagram/instagram26.png',
+];
+
 type Projects = {
   name: string;
   skills: string[];

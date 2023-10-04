@@ -2,11 +2,7 @@ import Instagram from '@/components/server-components/hoon-jo/Instagram';
 import _ from 'lodash';
 import React from 'react';
 
-type Props = {
-  instagram: Promise<any>;
-};
-
-const LifeOutsideWork = async ({ instagram }: Props) => {
+const LifeOutsideWork = async () => {
   return (
     <section className="mt-[110px] sm:mt-[250px] w-full">
       <div className="h-full w-full">
@@ -15,7 +11,7 @@ const LifeOutsideWork = async ({ instagram }: Props) => {
         </h2>
 
         <div className="w-full h-full z-0 relative">
-          <Instagram promise={instagram} />
+          <Instagram />
           <div className="px-[20px] lg:px-[100px] 2xl:px-[300px] pb-[200px] sm:pb-[300px] md:pb-[350px] lg:pb-[400px]">
             <div className="w-[90%] sm:w-[80%] lg:w-[55%]">
               <p className="mt-[30px] text-lg md:text-2xl">
